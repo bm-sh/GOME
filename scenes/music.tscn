@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3auf84nv0h4a"]
+
+[ext_resource type="AudioStream" uid="uid://bupm5bv1plp1q" path="res://music/what-we-lost-tv-movie-game-theme-zombie-virus-apocalypse-143267.mp3" id="1_5vsb3"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_5vsb3")
+autoplay = true
+bus = &"Music"

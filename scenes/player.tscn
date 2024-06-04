@@ -1,0 +1,72 @@
+[gd_scene load_steps=14 format=3 uid="uid://bep7emvfeuqwj"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_aal8p"]
+[ext_resource type="Texture2D" uid="uid://dxhuv41fjnpis" path="res://assests/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0476_Capa-477.png" id="1_ph1el"]
+[ext_resource type="Texture2D" uid="uid://djd5o2x0sgiio" path="res://assests/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0477_Capa-478.png" id="2_s144g"]
+[ext_resource type="Texture2D" uid="uid://cc7v3o14ruoic" path="res://assests/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0478_Capa-479.png" id="3_kg4hy"]
+[ext_resource type="Texture2D" uid="uid://57u5prnvmggv" path="res://assests/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0479_Capa-480.png" id="4_2u0fe"]
+[ext_resource type="Texture2D" uid="uid://ce06fejuc4ipb" path="res://assests/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0480_Capa-481.png" id="5_pfo84"]
+[ext_resource type="Texture2D" uid="uid://eomiwador8nn" path="res://assests/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0481_Capa-482.png" id="6_f6xh3"]
+[ext_resource type="Texture2D" uid="uid://bkhtoeibrbdx2" path="res://assests/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0482_Capa-483.png" id="7_sxisw"]
+[ext_resource type="Texture2D" uid="uid://cy1cr4ku16bdi" path="res://assests/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0483_Capa-484.png" id="8_8uwrt"]
+[ext_resource type="Texture2D" uid="uid://1624c7ju4n2g" path="res://assests/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0484_Capa-485.png" id="9_7elyi"]
+[ext_resource type="AudioStream" uid="uid://bhf24abx3j7cv" path="res://sounds/running-1-6846.mp3" id="11_eyt7x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yylb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ph1el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s144g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kg4hy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2u0fe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pfo84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f6xh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sxisw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8uwrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7elyi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lw1xe"]
+radius = 5.65685
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_aal8p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_yylb2")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.870497
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_lw1xe")
+
+[node name="running_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_eyt7x")
+volume_db = -4.0
